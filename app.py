@@ -117,7 +117,7 @@ features = {'age': age,
             'RBC': RBC
 }
 
-features_df = pd.DataFrame(features)
+features_df = pd.DataFrame([features])
 #显示输入的特征
 st.table(features_df)
 
