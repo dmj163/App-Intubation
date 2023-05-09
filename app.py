@@ -34,7 +34,7 @@ def predict_quality(model, df):
 
 
 # 导入模型
-model = joblib.load('save/cb_12fea.pkl')
+model = joblib.load('cb_12fea.pkl')
 
 st.sidebar.title("Features")
 
