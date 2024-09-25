@@ -34,26 +34,16 @@ def predict_quality(model, df):
 
 
 # 导入模型
-model = joblib.load('cb_12fea.pkl')
+model = joblib.load('cb_5fea.pkl')
 
 st.sidebar.title("Features")
 
 # 设置各项特征的输入范围和选项
-age = st.sidebar.slider(label='age', min_value=18.00,
-                                  max_value=120.00,
-                                  value=70.00,
-                                  step=0.01)
-
 
 BMI = st.sidebar.slider(label='BMI', min_value=1.00,
                                 max_value=100.00,
                                 value=24.00,
                                 step=0.01)
-
-DBP = st.sidebar.slider(label='DBP', min_value=1,
-                                   max_value=200,
-                                   value=80,
-                                   step=1)
 
 
 GCS = st.sidebar.number_input(label='GCS Score', min_value=3,
@@ -73,48 +63,18 @@ PaO2 = st.sidebar.number_input(label='PaO2', min_value=1.0,
                             value=1.0,
                             step=0.1)
 
-SpO2 = st.sidebar.number_input(label='SpO2', min_value=0,
-                            max_value=100,
-                            value=50,
-                            step=1)
 
 RR = st.sidebar.number_input(label='RR', min_value=0,
                             max_value=100,
                             value=0,
                             step=1)
 
-glucose = st.sidebar.number_input(label='glucose', min_value=1,
-                            max_value=1000,
-                            value=1,
-                            step=1)
 
-calcium = st.sidebar.number_input(label='calcium', min_value=0.0,
-                            max_value=20.0,
-                            value=0.0,
-                            step=0.1)
-
-PLT = st.sidebar.number_input(label='PLT', min_value=1,
-                            max_value=1000,
-                            value=50,
-                            step=1)
-
-RBC = st.sidebar.number_input(label='RBC', min_value=0.00,
-                            max_value=10.00,
-                            value=3.00,
-                            step=0.01)
-
-features = {'age': age,
-            'BMI': BMI,
-            'DBP': DBP,
+features = {'BMI': BMI,
             'GCS': GCS,
             'LOS before ICU': LOS,
             'PaO2': PaO2,
-            'SpO2':SpO2,
             'RR': RR,
-            'glucose':glucose,
-            'calcium':calcium,
-            'PLT': PLT,
-            'RBC': RBC
 }
 
 features_df = pd.DataFrame([features])
