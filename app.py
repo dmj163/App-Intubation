@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import joblib
-import matplotlib.pyplot as plt
 import sklearn
 
 # 页面内容设置
@@ -27,7 +26,7 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 
 
 
-@st.cache
+
 def predict_quality(model, df):
     y_pred = model.predict_proba(df)
     return y_pred[:, 1]
@@ -84,7 +83,7 @@ st.table(features_df)
 #显示预测结果与shap解释图
 if st.button('Predict'):
     prediction = predict_quality(model, features_df)
-    st.write("the probability of mortality:")
+    st.write("the probability of intubation:")
     st.success(round(prediction[0], 3))
 
 
